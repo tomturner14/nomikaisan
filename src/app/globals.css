@@ -1,3 +1,12 @@
 body {
   background-color: #006400;
 }
+
+.no-underline {
+  text-decoration: none;
+  color: white;
+}
+
+.no-underline:hover {
+  color: gray;
+}

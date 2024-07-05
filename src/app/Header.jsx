@@ -3,10 +3,10 @@ import Link from 'next/link';
 
 const Header = () => {
   return (
-    <header>
+    <header className='py-5 px-10 flex justify-between items-center'>
       <div>
-        <h1>
-          <Link href="/">飲み会さん</Link>
+        <h1 className='font-color:white'>
+          <Link href="/" className='no-underline flex ju'>飲み会さん</Link>
         </h1>
       </div>
       <div>
