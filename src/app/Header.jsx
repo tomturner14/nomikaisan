@@ -10,7 +10,9 @@ const Header = () => {
         </h1>
       </div>
       <div>
-        <button>ログイン／会員登録</button>
+        <nav>
+          <Link href="/">ログイン／会員登録</Link>
+        </nav>
       </div>
     </header>
   )
