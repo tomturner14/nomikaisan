@@ -11,11 +11,10 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
-      <body className={inter.className}>
+    <html lang="ja">
+      <body className="container mx-auto">
         <Header />
         {children}
-
         <footer>footer</footer>
       </body>
     </html>
