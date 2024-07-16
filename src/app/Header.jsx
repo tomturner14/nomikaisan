@@ -6,10 +6,15 @@ import './styles.css';
 const Header = () => {
   return (
     <header>
-      <div>
+      <div className='title'>
         <h1>
-          <Link href="/">test</Link>
+          <Link href="/" className='no-underline'>test</Link>
         </h1>
+      </div>
+      <div className='login-link'>
+        <h4>
+          <Link href="/">ログイン／会員登録</Link>
+        </h4>
       </div>
     </header>
   )

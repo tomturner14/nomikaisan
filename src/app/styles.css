@@ -1,11 +1,35 @@
+body {
+background-color: #254336;
+}
+
 header {
-  padding: 1rem 2rem; /* py-5 px-10 */
-  border-bottom: 1px solid #ccc; /* border-b */
+  padding: 5px 40px;
+  border-bottom: 1px solid #ccc;
   display: flex;
-  justify-content: between;
+  justify-content: space-between;
   align-items: center;
 }
 
-header h1 {
-  padding: 1rem 2rem; /* py-5 px-10 */
+a {
+  color: white;
+  text-decoration: none;
+}
+
+.title{
+  text-align: left
+}
+
+.login-link a{
+  padding: 10px 20px;
+  text-align: right;
+  /* border: #6B8A7A 1px solid; */
+  border-radius: 10px;
+  background-color: #6B8A7A;
+}
+
+.calendar {
+  margin-right: 200px;
+  width: 330px;
+  height: 220px;
+  object-fit: cover;
 }
