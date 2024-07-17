@@ -1,0 +1,116 @@
+body {
+  background-color: #254336;
+}
+
+header {
+  padding: 5px 40px;
+  border-bottom: 1px solid #ccc;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+a {
+  color: white;
+  text-decoration: none;
+}
+
+.title{
+  text-align: left
+}
+
+.login-link a{
+  padding: 10px 20px;
+  text-align: right;
+  /* border: #6B8A7A 1px solid; */
+  border-radius: 10px;
+  background-color: #6B8A7A;
+}
+
+.calendar {
+  margin-right: 200px;
+  margin-top: -25px;
+  width: 264px;
+  /* height: 50px; */
+  object-fit: cover;
+  grid-column: span 8;
+  /* border: 5px solid black; */
+}
+
+.steps {
+  padding: 50px 200px;
+}
+
+.step1 {
+  display: flex;
+}
+
+.step1 h4 {
+  color: white;
+  padding-right: 80px;
+  padding-top: 5px;
+}
+
+.step1 h2 {
+  color: white;
+  padding-right: 80px;
+}
+
+.step1 input {
+  width: 500px;
+  height: 45px;
+  border-radius: 8px;
+  margin-top: 10px;
+}
+
+.step2 {
+  display: flex;
+  padding-top: 20px;
+}
+
+.step2 h4 {
+  color: white;
+  padding-right: 80px;
+  padding-top: 5px;
+}
+
+.step2 h2 {
+  color: white;
+}
+
+.main-content {
+  color: white;
+  /* display: flex; */
+  /* min-height: 100vh; */
+  /* flex-direction: column; */
+  /* align-items: center; */
+  /* justify-content: space-between; */
+  padding: 0px 300px;
+  /* margin-left: 100px; */
+}
+
+.calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+}
+
+.fc-scroller {
+  overflow: hidden !important;
+}
+
+.fc-button {
+  display: flex;
+}
+
+.fc-toolbar-chunk {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0px 15px;
+  /* margin-left: -50px; */
+  /* border: 5px solid black; */
+}
+
+.fc--button.fc-button.fc-button-primary {
+  display: none;
+}

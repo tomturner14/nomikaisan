@@ -46,6 +46,16 @@
   width: var(--max-width);
 }
 
+  .fc-daygrid-day {
+    height: 30px !important; /* 各日のセルの高さを30pxに設定 */
+  }
+
+  .fc-daygrid-day-top {
+    white-space: nowrap; /* 日付の文字を折り返さずに一行で表示 */
+    overflow: hidden; /* 内容がオーバーフローした場合は非表示に */
+    text-overflow: ellipsis; /* 切り詰めたテキストの末尾に省略記号を表示 */
+  }
+
 .card {
   padding: 1rem 1.2rem;
   border-radius: var(--border-radius);

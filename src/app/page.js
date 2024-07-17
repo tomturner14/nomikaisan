@@ -10,6 +10,7 @@ import { Dialog, Transition } from '@headlessui/react';
 import { CheckIcon, ExclamationTriangleIcon } from '@heroicons/react/20/solid';
 import { EventSourceInput } from '@fullcalendar/core/index.js';
 import PropTypes from "prop-types"
+import "./globals.css";
 
 function Event(prop) {
   return (
@@ -37,23 +38,22 @@ Event.defaultProps = {
 export default function Home() {
   return (
     <div>
-      <div className="step1">
-        <h4>STEP 1</h4>
-        <h2>イベント名</h2>
-        <input></input>
-      </div>
-      <div>
-        <h4>STEP 2</h4>
-        <h2>候補日</h2>
+      <div className="steps">
+        <div className="step1">
+          <h4>STEP 1</h4>
+          <h2>イベント名</h2>
+          <input></input>
+        </div>
+        <div className="step2">
+          <h4>STEP 2</h4>
+          <h2>候補日</h2>
+        </div>
       </div>
       <div className="calendar">
         <>
-          <nav className="flex justify-between mb-12 border-b border-violet-100 p-4">
-            <h1 className="font-bold text-2xl text-gray-700">Calendar</h1>
-          </nav>
-          <main className="flex min-h-screen flex-col items-center justify-between p-24">
-            <div className="grid grid-cols-10">
-              <div className="col-span-8">
+          <main className="main-content">
+            <div className="calendar-grid">
+              <div className="calendar">
                 <FullCalendar
                   plugins={[
                     dayGridPlugin,
@@ -61,15 +61,20 @@ export default function Home() {
                     timeGridPlugin
                   ]}
                   headerToolbar={{
-                    left: 'prev, next today',
-                    center: 'title',
-                    right: 'resourceTimelineWook, dayGridMonth, timeGridWeek'
+                    left: 'prev, next',
+                    center: 'title'
                   }}
+                  contentHeight="auto"
+                  contentWidth="auto"
+
                 />
               </div>
             </div>
           </main>
         </>
+      </div>
+      <div>
+        <input></input>
       </div>
     </div>
   )
