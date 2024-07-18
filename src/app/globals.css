@@ -114,3 +114,28 @@ a {
 .fc--button.fc-button.fc-button-primary {
   display: none;
 }
+
+.chat {
+  position: absolute;
+  right: 700px;           /* 右側に固定 */
+  bottom: 500px;          /* 下側に固定 */
+  width: 100px;       /* 適宜調整 */
+  padding: 300px 200px 0px 0;
+  border: 5px solid black;
+}
+
+.chat-input {
+  width: 500px;
+}
+
+.memo {
+  position: absolute;
+  right: 700px;           /* 右側に固定 */
+  bottom: 300px;          /* 下側に固定 */
+  width: 100px;       /* 適宜調整 */
+  padding-right: 200px;
+}
+
+.memo-input {
+  width: 500px;
+}

@@ -73,8 +73,11 @@ export default function Home() {
           </main>
         </>
       </div>
-      <div>
-        <input></input>
+      <div className="chat">
+        <input className="chat-input"></input>
+      </div>
+      <div className="memo">
+        <input className="memo-input"></input>
       </div>
     </div>
   )
