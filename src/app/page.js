@@ -38,17 +38,20 @@ Event.defaultProps = {
 
 export default function Home() {
   const [value, setValue] = useState(dayjs());
+  
   return (
     <div>
       <div className="steps">
         <div className="step1">
           <h4>STEP 1</h4>
           <h2>イベント名</h2>
-          <input></input>
+          <input type="text" />
         </div>
         <div className="step2">
           <h4>STEP 2</h4>
           <h2>候補日</h2>
+        </div>
+        <div className="calendar">
           <LocalizationProvider dateAdapter={AdapterDayjs}>
             <StaticDatePicker
               displayStaticWrapperAs="desktop"
@@ -61,14 +64,8 @@ export default function Home() {
             />
           </LocalizationProvider>
         </div>
-        <div>
-        
-        </div>
-      </div>
-      <div className="calendar">
-
       </div>
     </div>
-  )
+  );
 }
 
