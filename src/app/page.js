@@ -74,7 +74,13 @@ export default function Home() {
         </>
       </div>
       <div>
-        <input></input>
+        <input className="chat-input"></input>
+      </div>
+      <div>
+        <input className="memo-input"></input>
+      </div>
+      <div className="generate">
+        <button className="generate-event">出欠表作成</button>
       </div>
     </div>
   )

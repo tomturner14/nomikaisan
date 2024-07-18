@@ -33,11 +33,14 @@ a {
   width: 264px;
   /* height: 50px; */
   object-fit: cover;
-  grid-column: span 8;
+  grid-column: 1 / 2;
   /* border: 5px solid black; */
 }
 
 .steps {
+  grid-column: 2 / 3;
+  display: flex;
+  flex-direction: column;
   padding: 50px 200px;
 }
 
@@ -91,7 +94,8 @@ a {
 
 .calendar-grid {
   display: grid;
-  grid-template-columns: repeat(7, 1fr);
+  grid-template-columns: 2fr 1fr;
+  gap: 20px;
 }
 
 .fc-scroller {
@@ -113,4 +117,31 @@ a {
 
 .fc--button.fc-button.fc-button-primary {
   display: none;
+}
+
+.chat {
+  position: absolute;
+  right: 700px;
+  bottom: 500px;
+  width: 300px;
+}
+
+.memo {
+  position: absolute;
+  right: 700px;
+  bottom: 300px;
+  width: 300px;
+}
+
+.chat input, .memo input {
+  width: 100%;  /* 入力欄の幅を親要素の100%に設定 */
+  max-width: 300px;  /* 最大幅を300pxに設定 */
+}
+
+.generate-event {
+  width: 300px;
+  height: 50px;
+  /* border: 5px solid black; */
+  text-align: center;
+  display: inline-block;
 }
