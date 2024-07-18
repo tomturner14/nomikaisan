@@ -119,11 +119,12 @@ a {
   display: none;
 }
 
-.chat {
+.date-input {
   position: absolute;
   right: 700px;
   bottom: 500px;
   width: 300px;
+  border: 5px solid black;
 }
 
 .memo {

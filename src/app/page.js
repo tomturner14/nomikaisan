@@ -74,7 +74,7 @@ export default function Home() {
         </>
       </div>
       <div>
-        <input className="chat-input"></input>
+        <input className="date-input"></input>
       </div>
       <div>
         <input className="memo-input"></input>
