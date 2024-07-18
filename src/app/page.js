@@ -6,6 +6,12 @@ import { Dialog, Transition } from '@headlessui/react';
 import { CheckIcon, ExclamationTriangleIcon } from '@heroicons/react/20/solid';
 import PropTypes from "prop-types"
 import "./globals.css";
+import * as React from 'react';
+import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
+import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
+import { StaticDatePicker } from '@mui/x-date-pickers/StaticDatePicker';
+import dayjs from 'dayjs';
+import { TextField } from "@mui/material";
 
 function Event(prop) {
   return (
@@ -31,6 +37,7 @@ Event.defaultProps = {
 }
 
 export default function Home() {
+  const [value, setValue] = useState(dayjs());
   return (
     <div>
       <div className="steps">
@@ -42,6 +49,20 @@ export default function Home() {
         <div className="step2">
           <h4>STEP 2</h4>
           <h2>候補日</h2>
+          <LocalizationProvider dateAdapter={AdapterDayjs}>
+            <StaticDatePicker
+              displayStaticWrapperAs="desktop"
+              openTo="day"
+              value={value}
+              onChange={(newValue) => {
+                setValue(newValue);
+              }}
+              renderInput={(params) => <TextField {...params} />}
+            />
+          </LocalizationProvider>
+        </div>
+        <div>
+        
         </div>
       </div>
       <div className="calendar">
