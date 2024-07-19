@@ -6,6 +6,12 @@ import { Dialog, Transition } from '@headlessui/react';
 import { CheckIcon, ExclamationTriangleIcon } from '@heroicons/react/20/solid';
 import PropTypes from "prop-types"
 import "./globals.css";
+import * as React from 'react';
+import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
+import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
+import { StaticDatePicker } from '@mui/x-date-pickers/StaticDatePicker';
+import dayjs from 'dayjs';
+import { TextField } from "@mui/material";
 
 function Event(prop) {
   return (
@@ -31,53 +37,35 @@ Event.defaultProps = {
 }
 
 export default function Home() {
+  const [value, setValue] = useState(dayjs());
+  
   return (
     <div>
       <div className="steps">
         <div className="step1">
           <h4>STEP 1</h4>
           <h2>イベント名</h2>
-          <input></input>
+          <input type="text" />
         </div>
         <div className="step2">
           <h4>STEP 2</h4>
           <h2>候補日</h2>
         </div>
-      </div>
-      <div className="calendar">
-        <>
-          <main className="main-content">
-            <div className="calendar-grid">
-              <div className="calendar">
-                <FullCalendar
-                  plugins={[
-                    dayGridPlugin,
-                    interactionPlugin,
-                    timeGridPlugin
-                  ]}
-                  headerToolbar={{
-                    left: 'prev, next',
-                    center: 'title'
-                  }}
-                  contentHeight="auto"
-                  contentWidth="auto"
-
-                />
-              </div>
-            </div>
-          </main>
-        </>
-      </div>
-      <div>
-        <input className="date-input"></input>
-      </div>
-      <div>
-        <input className="memo-input"></input>
-      </div>
-      <div className="generate">
-        <button className="generate-event">出欠表作成</button>
+        <div className="calendar">
+          <LocalizationProvider dateAdapter={AdapterDayjs}>
+            <StaticDatePicker
+              displayStaticWrapperAs="desktop"
+              openTo="day"
+              value={value}
+              onChange={(newValue) => {
+                setValue(newValue);
+              }}
+              renderInput={(params) => <TextField {...params} />}
+            />
+          </LocalizationProvider>
+        </div>
       </div>
     </div>
-  )
+  );
 }
 

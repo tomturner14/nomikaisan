@@ -80,3 +80,8 @@ a {
 .step2 h2 {
   color: white;
 }
+
+.calendar {
+  padding-left: 200px;
+  padding-top: 50px;
+}
