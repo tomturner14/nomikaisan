@@ -38,7 +38,7 @@ Event.defaultProps = {
 
 export default function Home() {
   const [value, setValue] = useState(dayjs());
-  
+
   return (
     <div>
       <div className="steps">
