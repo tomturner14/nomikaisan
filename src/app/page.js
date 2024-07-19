@@ -1,14 +1,9 @@
 "use client"
 import Image from "next/image";
 import styles from "./page.module.css";
-import FullCalendar from "@fullcalendar/react";
-import dayGridPlugin from "@fullcalendar/daygrid";
-import interactionPlugin, { Draggable, DropArg } from '@fullcalendar/interaction';
-import timeGridPlugin from '@fullcalendar/timegrid';
 import { Fragment, useEffect, useState } from 'react';
 import { Dialog, Transition } from '@headlessui/react';
 import { CheckIcon, ExclamationTriangleIcon } from '@heroicons/react/20/solid';
-import { EventSourceInput } from '@fullcalendar/core/index.js';
 import PropTypes from "prop-types"
 import "./globals.css";
 
