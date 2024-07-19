@@ -12,6 +12,7 @@ import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { StaticDatePicker } from '@mui/x-date-pickers/StaticDatePicker';
 import dayjs from 'dayjs';
 import { TextField } from "@mui/material";
+import { Duplex } from "stream";
 
 function Event(prop) {
   return (
@@ -45,24 +46,32 @@ export default function Home() {
         <div className="step1">
           <h4>STEP 1</h4>
           <h2>イベント名</h2>
-          <input type="text" />
+          <input type="text" className="event-name"/>
         </div>
         <div className="step2">
           <h4>STEP 2</h4>
           <h2>候補日</h2>
         </div>
-        <div className="calendar">
-          <LocalizationProvider dateAdapter={AdapterDayjs}>
-            <StaticDatePicker
-              displayStaticWrapperAs="desktop"
-              openTo="day"
-              value={value}
-              onChange={(newValue) => {
-                setValue(newValue);
-              }}
-              renderInput={(params) => <TextField {...params} />}
-            />
-          </LocalizationProvider>
+        <div className="date-section">
+          <div className="calendar">
+            <LocalizationProvider dateAdapter={AdapterDayjs}>
+              <StaticDatePicker
+                displayStaticWrapperAs="desktop"
+                openTo="day"
+                value={value}
+                onChange={(newValue) => {
+                  setValue(newValue);
+                }}
+                renderInput={(params) => <TextField {...params} />}
+              />
+            </LocalizationProvider>
+          </div>
+          <div>
+            <input type="text" className="selected-date"/>
+          </div>
+          <div>
+            <input type="text" className="memo-input"/>
+          </div>
         </div>
       </div>
     </div>

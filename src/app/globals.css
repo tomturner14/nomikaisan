@@ -85,3 +85,7 @@ a {
   padding-left: 200px;
   padding-top: 50px;
 }
+
+.date-section {
+  display: flex;
+}
