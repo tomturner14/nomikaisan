@@ -89,3 +89,9 @@ a {
 .date-section {
   display: flex;
 }
+
+.input-section {
+  display: flex;
+  flex-flow: column;
+}
+

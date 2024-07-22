@@ -66,11 +66,13 @@ export default function Home() {
               />
             </LocalizationProvider>
           </div>
-          <div>
-            <input type="text" className="selected-date"/>
-          </div>
-          <div>
-            <input type="text" className="memo-input"/>
+          <div className="input-section">
+            <div className="selected_date">
+              <input type="text" className="selected-date-input"/>
+            </div>
+            <div className="memo">
+              <input type="text" className="memo-input"/>
+            </div>
           </div>
         </div>
       </div>
