@@ -90,7 +90,7 @@ a {
   display: flex;
 }
 
-.input-section {
+.date-input-section {
   display: flex;
   flex-flow: column;
 }
