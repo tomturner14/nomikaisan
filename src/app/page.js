@@ -68,6 +68,7 @@ export default function Home() {
           </div>
           <div className="date-input-section">
             <div className="selected_date">
+              <h3>選択済み候補日</h3>
               <input type="text" className="selected-date-input"/>
             </div>
             <div className="memo">

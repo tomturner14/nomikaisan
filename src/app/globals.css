@@ -28,7 +28,7 @@ a {
 }
 
 .calendar {
-  margin-right: 200px;
+  margin-right: 0px;
   margin-top: -25px;
   width: 264px;
   /* height: 50px; */
@@ -93,5 +93,25 @@ a {
 .date-input-section {
   display: flex;
   flex-flow: column;
+  margin-left: 80px;
 }
 
+.selected_date h3 {
+  color: white;
+  margin-top: -20px;
+  margin-bottom: -10px;
+}
+
+.selected-date-input {
+  width: 300px;
+  height: 334px;
+  margin: 25px 0px 20px 0px;
+  background-color: #c8ecda;
+  border: none;
+  border-radius: 5%;
+}
+
+.memo-input {
+  width: 300px;
+  height: 100px;
+}
