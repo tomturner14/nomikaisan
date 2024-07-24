@@ -9,17 +9,27 @@ import "./globals.css";
 import * as React from 'react';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
-import { StaticDatePicker } from '@mui/x-date-pickers/StaticDatePicker';
+import { StaticDatePicker, PickersDay } from '@mui/x-date-pickers/StaticDatePicker';
 import dayjs from 'dayjs';
+import 'dayjs/locale/ja';
+import updateLocale from 'dayjs/plugin/updateLocale';
 import { TextField } from "@mui/material";
 import { Duplex } from "stream";
+import Link from "next/link";
+
+dayjs.extend(updateLocale);
+
+dayjs.updateLocale('ja', {
+  weekdays: ['日曜日', '月曜日', '火曜日', '水曜日', '木曜日', '金曜日', '土曜日'],
+  weekdaysShort: ['日', '月', '火', '水', '木', '金', '土'],
+});
 
 function Event(prop) {
   return (
     <div>
-      <h2>{props.title}</h2>
-      <p>All day event? {props.allday ? "Yes" : "No"}</p>
-      <p>Starts on: {props.start.toString()}</p>
+      <h2>{prop.title}</h2>
+      <p>All day event? {prop.allday ? "Yes" : "No"}</p>
+      <p>Starts on: {prop.start.toString()}</p>
     </div>
   );
 }
@@ -38,7 +48,16 @@ Event.defaultProps = {
 }
 
 export default function Home() {
-  const [value, setValue] = useState(dayjs());
+  const [value, setValue] = useState(dayjs().locale('ja'));
+  const [selectedDates, setSelectedDates] = useState([]);
+
+  const handleDateClick = (newValue) => {
+    setValue(newValue);
+    const formattedDate = newValue.locale('ja').format('M月D日 (ddd)');
+    if (!selectedDates.includes(formattedDate)) {
+      setSelectedDates([...selectedDates, formattedDate]);
+    }
+  };
 
   return (
     <div>
@@ -54,30 +73,38 @@ export default function Home() {
         </div>
         <div className="date-section">
           <div className="calendar">
-            <LocalizationProvider dateAdapter={AdapterDayjs}>
+            <LocalizationProvider dateAdapter={AdapterDayjs} locale="ja">
               <StaticDatePicker
                 displayStaticWrapperAs="desktop"
                 openTo="day"
                 value={value}
-                onChange={(newValue) => {
-                  setValue(newValue);
-                }}
+                onChange={(newValue) => handleDateClick(newValue)}
                 renderInput={(params) => <TextField {...params} />}
+                renderDay={(day, _value, DayComponentProps) => {
+                  return (
+                    <div onClick={() => handleDateClick(day)}>
+                      <PickersDay {...DayComponentProps} />
+                    </div>
+                  );
+                }}
               />
             </LocalizationProvider>
           </div>
           <div className="date-input-section">
             <div className="selected_date">
               <h3>選択済み候補日</h3>
-              <input type="text" className="selected-date-input"/>
+              <textarea className="selected-date-input" value={selectedDates.join('\n')} readOnly/>
             </div>
+            <h3>メモ</h3>
             <div className="memo">
               <input type="text" className="memo-input"/>
             </div>
           </div>
+          <h4>
+            <Link href="/complete">出欠表作成</Link>
+          </h4>
         </div>
       </div>
     </div>
   );
 }
-

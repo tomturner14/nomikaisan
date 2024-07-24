@@ -96,6 +96,10 @@ a {
   margin-left: 80px;
 }
 
+.date-input-section h3{
+  color: white;
+}
+
 .selected_date h3 {
   color: white;
   margin-top: -20px;
