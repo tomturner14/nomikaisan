@@ -1,0 +1,49 @@
+/* src/complete/page.module.css */
+
+.container {
+  background-color: #344e41;
+  color: white;
+  text-align: center;
+  padding: 20px;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.h1 {
+  font-size: 2em;
+  margin-bottom: 10px;
+}
+
+.p {
+  margin-bottom: 20px;
+}
+
+.url-box {
+  margin-bottom: 20px;
+}
+
+.input[type="text"] {
+  padding: 10px;
+  font-size: 1em;
+  width: 300px;
+  text-align: center;
+  border: none;
+  border-radius: 5px;
+}
+
+.event-button {
+  padding: 50px 20px;
+  font-size: 1em;
+  color: #344e41;
+  background-color: #d9d9d9;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.event-button:hover {
+  background-color: #b8b8b8;
+}

@@ -88,16 +88,13 @@ a {
 
 .date-section {
   display: flex;
+  height: 550px;
 }
 
 .date-input-section {
   display: flex;
   flex-flow: column;
   margin-left: 80px;
-}
-
-.date-input-section h3{
-  color: white;
 }
 
 .selected_date h3 {
@@ -110,12 +107,32 @@ a {
   width: 300px;
   height: 334px;
   margin: 25px 0px 20px 0px;
-  background-color: #c8ecda;
+  background-color: rgb(209, 207, 207);
   border: none;
   border-radius: 5%;
 }
-
+/*
 .memo-input {
   width: 300px;
   height: 100px;
+} */
+
+.generate-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100px;
+  margin-top: 400px;
+  margin-left: -600px;
+  /* margin-right: -00px; */
+}
+
+
+.generate-button a {
+  padding: 10px 20px;
+  margin-top: 100px;
+  /* border: #6B8A7A 1px solid; */
+  border-radius: 10px;
+  background-color: rgb(170, 170, 152);
+  padding: 15px 200px;
 }

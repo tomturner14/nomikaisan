@@ -95,14 +95,15 @@ export default function Home() {
               <h3>選択済み候補日</h3>
               <textarea className="selected-date-input" value={selectedDates.join('\n')} readOnly/>
             </div>
-            <h3>メモ</h3>
-            <div className="memo">
+            {/* <div className="memo">
               <input type="text" className="memo-input"/>
-            </div>
+            </div> */}
           </div>
-          <h4>
-            <Link href="/complete">出欠表作成</Link>
-          </h4>
+          <div className="generate-section">
+            <h2 className="generate-button">
+              <Link href="/CompletePage">出欠表作成</Link>
+            </h2>
+          </div>
         </div>
       </div>
     </div>
