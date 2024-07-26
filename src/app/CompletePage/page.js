@@ -6,14 +6,14 @@ import Link from 'next/link';
 
 const CompletePage = () => {
   return (
-    <div className={styles.container}>
-      <h1 className={styles.heading}>イベント作成完了</h1>
-      <p className={styles.paragraph}>参加者へ下記URLを共有し出欠を入力してもらいましょう！</p>
-      <div className={styles.urlBox}>
-        <input type="text" value="https://nomikainittei.com" readOnly className={styles.input} />
+    <div>
+      <h1>イベント作成完了</h1>
+      <p>参加者へ下記URLを共有し出欠を入力してもらいましょう！</p>
+      <div>
+        <input type="text" value="https://nomikainittei.com" readOnly/>
       </div>
-      <div className="generate-section">
-        <h2 className="to-eventpage-button">
+      <div>
+        <h2>
           <Link href="/EventPage">イベントページへ</Link>
         </h2>
       </div>
