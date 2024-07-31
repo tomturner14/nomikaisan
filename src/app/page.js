@@ -70,41 +70,38 @@ export default function Home() {
         <div className="step2">
           <h4>STEP 2</h4>
           <h2>候補日</h2>
-            <div className="date-section">
-              <div className="calendar">
-                <LocalizationProvider dateAdapter={AdapterDayjs} locale="ja">
-                  <StaticDatePicker
-                    displayStaticWrapperAs="desktop"
-                    openTo="day"
-                    value={value}
-                    onChange={(newValue) => handleDateClick(newValue)}
-                    renderInput={(params) => <TextField {...params} />}
-                    renderDay={(day, _value, DayComponentProps) => {
-                      return (
-                        <div onClick={() => handleDateClick(day)}>
-                          <PickersDay {...DayComponentProps} />
-                        </div>
-                      );
-                    }}
-                  />
-                </LocalizationProvider>
+          <div className="date-section">
+            <div className="calendar">
+              <LocalizationProvider dateAdapter={AdapterDayjs} locale="ja">
+                <StaticDatePicker
+                  displayStaticWrapperAs="desktop"
+                  openTo="day"
+                  value={value}
+                  onChange={(newValue) => handleDateClick(newValue)}
+                  renderInput={(params) => <TextField {...params} />}
+                  renderDay={(day, _value, DayComponentProps) => {
+                    return (
+                      <div onClick={() => handleDateClick(day)}>
+                        <PickersDay {...DayComponentProps} />
+                      </div>
+                    );
+                  }}
+                />
+              </LocalizationProvider>
+            </div>
+            <div className="date-input-section">
+              <div className="selected_date">
+                <h3>選択済み候補日</h3>
+                <textarea className="selected-date-input" value={selectedDates.join('\n')} readOnly/>
               </div>
-              <div className="date-input-section">
-                <div className="selected_date">
-                  <h3>選択済み候補日</h3>
-                  <textarea className="selected-date-input" value={selectedDates.join('\n')} readOnly/>
-                </div>
-        </div>
-            {/* <div className="memo">
-              <input type="text" className="memo-input"/>
-            </div> */}
+            </div>
           </div>
+        </div>
           <div className="generate-section">
             <h2 className="generate-button">
               <Link href="/CompletePage">出欠表作成</Link>
             </h2>
           </div>
-        </div>
       </div>
     </div>
   );
