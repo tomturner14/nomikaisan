@@ -99,7 +99,7 @@ export default function Home() {
         </div>
           <div className="generate-section">
             <h2 className="generate-button">
-              <Link href="/CompletePage">出欠表作成</Link>
+              <Link href="/complete-page">出欠表作成</Link>
             </h2>
           </div>
       </div>

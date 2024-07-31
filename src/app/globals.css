@@ -114,11 +114,6 @@ a {
   border-radius: 5%;
   padding: 10px 0 0 10px;
 }
-/*
-.memo-input {
-  width: 300px;
-  height: 100px;
-} */
 
 .generate-section {
   display: flex;
@@ -129,7 +124,6 @@ a {
   /* margin-left: -100px; */
   /* margin-right: -00px; */
 }
-
 
 .generate-button a {
   /* padding: 10px 20px; */

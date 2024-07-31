@@ -1,0 +1,48 @@
+/* src/app/complete-page/page.module.css */
+
+.container {
+  padding: 20px;
+}
+
+.title {
+  font-size: 36px;
+  color: white;
+  text-align: center;
+}
+
+.description {
+  margin: 10px 0;
+  color: white;
+  text-align: center;
+}
+
+.inputContainer {
+  margin: 20px 0;
+  text-align: center;
+}
+
+.input {
+  width: 500px;
+  padding: 10px;
+  margin-top: -10px;
+}
+
+.linkContainer {
+  margin-top: 20px;
+  /* width: 1000px; */
+  text-align: center;
+  justify-content: center;
+  display: flex;
+  font-size: 10px;
+}
+
+.link {
+  background-color: rgb(170, 170, 152);
+  width: 150px;
+  /* text-align: center; */
+  border-radius: 10px;
+  /* justify-content: center; */
+  background-color: rgb(170, 170, 152);
+  padding: 10px 80px;
+  /* margin-left: 330px; */
+}
