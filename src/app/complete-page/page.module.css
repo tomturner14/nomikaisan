@@ -8,16 +8,17 @@
   font-size: 36px;
   color: white;
   text-align: center;
+  margin-top: 50px;
 }
 
 .description {
-  margin: 10px 0;
+  margin: 70px 0 20px 0;
   color: white;
   text-align: center;
 }
 
 .inputContainer {
-  margin: 20px 0;
+  /* margin: 0; */
   text-align: center;
 }
 
