@@ -1,6 +1,7 @@
 "use client";
 
 import { usePathname } from "next/navigation";
+import styles from './page.module.css';
 
 const EventPage = () => {
   const pathname = usePathname();
@@ -19,20 +20,27 @@ const EventPage = () => {
 
   return (
     <div>
-      <div>
+      <div className={styles.information}>
         <h2>{event.title}</h2>
         <p>{event.date}</p>
       </div>
       <div>
-        <h3>参加者</h3>
-        <ul>
-          {participants.map((participant, index) => (
-            <li key={index}>
-              <p>名前: {participant.name}</p>
-              <p>出欠: {participant.attendance}</p>
-            </li>
-          ))}
-        </ul>
+        <table className={styles.table}>
+          <thead>
+            <tr>
+              <th>参加者</th>
+              <th>出欠</th>
+            </tr>
+          </thead>
+          <tbody>
+            {participants.map((participant, index) => (
+              <tr key={index}>
+                <td>{participant.name}</td>
+                <td>出欠: {participant.attendance}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
       </div>
     </div>
   );

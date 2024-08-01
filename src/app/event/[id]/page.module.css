@@ -1,0 +1,26 @@
+.information {
+  color: white;
+  padding: 50px 0 100px 50px;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  color: white;
+  border: 1px solid white;
+  background-color: #6B8A7A;
+}
+
+.th .td {
+  border: 1px solid white;
+  padding: 8px;
+}
+
+.th {
+  background-color: #f2f2f2;
+  text-align: center;
+}
+
+.table .th .td {
+  border: 1px solid white; /* 罫線の色と幅を定義 */
+}
