@@ -14,7 +14,7 @@ const CompletePage = () => {
       </div>
       <div className={styles.linkContainer}>
         <h2 className={styles.link}>
-          <Link href="/EventPage">イベントページへ</Link>
+          <Link href="/event">イベントページへ</Link>
         </h2>
       </div>
     </div>
