@@ -4,11 +4,12 @@
 }
 
 .table {
-  width: 100%;
+  width: 600px;
   border-collapse: collapse;
   color: white;
   border: 1px solid white;
   background-color: #6B8A7A;
+  padding: 100px;
 }
 
 .th .td {
