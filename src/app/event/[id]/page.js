@@ -28,6 +28,7 @@ const EventPage = () => {
         <table className={styles.table}>
           <thead>
             <tr>
+              <th>日程</th>
               <th>参加者</th>
               <th>出欠</th>
             </tr>
