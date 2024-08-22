@@ -7,10 +7,15 @@ const EventPage = () => {
   const pathname = usePathname();
   const eventId = pathname.split("/").pop();
 
-  const event = {
+  const eventTitles = {
     title: "イベントタイトル",
-    date: "2024-07-30"
   };
+
+  const eventDates = [
+    "2024-07-30",
+    "2024-08-05",
+    "2024-08-12"
+  ]
 
   const participants = [
     { name: "高橋", attendance: "〇" },
@@ -21,8 +26,11 @@ const EventPage = () => {
   return (
     <div className={styles.body}>
       <div className={styles.information}>
-        <h2>{event.title}</h2>
-        <p>{event.date}</p>
+        <h2 className={styles.eventTitle}>{eventTitles.title}</h2>
+        <button className={styles.eventEdit}>イベント編集</button>
+      </div>
+      <div>
+        <button className={styles.attendanceButton}>出欠入力を行う</button>
       </div>
       <div>
         <table className={styles.table}>
@@ -36,8 +44,9 @@ const EventPage = () => {
           <tbody>
             {participants.map((participant, index) => (
               <tr key={index}>
+                <td>{eventDates[index]}</td>
                 <td>{participant.name}</td>
-                <td>出欠: {participant.attendance}</td>
+                <td>{participant.attendance}</td>
               </tr>
             ))}
           </tbody>

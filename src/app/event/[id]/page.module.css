@@ -1,29 +1,61 @@
+/* page.module.css */
 .body {
-  background-color: #f2f2f2;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 20px;
+  background-color: rgb(214, 212, 212);
 }
 
 .information {
-  color: white;
-  padding: 50px 0 100px 50px;
+  text-align: left;
+  color: black;
+  margin-left: 50px;
+  display: flex;
+}
+
+.eventTitle {
+  text-decoration: underline;
+}
+
+.eventEdit {
+  margin-left: 30px;
+  /* padding: -100px 25px; */
+  background-color: #43766C;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
 }
 
 .table {
-  width: 600px;
+  width: 800px;
   border-collapse: collapse;
-  color: white;
-  background-color: #6B8A7A;
+  background-color: #43766C;
+  margin: -140px 0 100px 250px;
+  color: #fff;
 }
 
-.th, .td {
-  border: 1px solid white;
+.table th,
+.table td {
+  border: 1px solid #fff;
   padding: 8px;
-}
-
-.th {
-  background-color: #f2f2f2;
   text-align: center;
 }
 
-.td {
+.table th {
+  background-color: #43766C;
   text-align: center;
+  align-items: center;
+}
+
+.attendanceButton {
+  background-color: #43766C;
+  margin: -200px 0 0 530px;
+  padding: 20px 50px;
+  color: #fff;
+  font-size: large;
+  font-weight: bold;
+  border: none;
+  border-radius: 5px;
 }
