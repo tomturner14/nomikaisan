@@ -19,7 +19,7 @@ const EventPage = () => {
   ];
 
   return (
-    <div>
+    <div className={styles.body}>
       <div className={styles.information}>
         <h2>{event.title}</h2>
         <p>{event.date}</p>
