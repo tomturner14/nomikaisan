@@ -19,12 +19,22 @@ a {
   text-align: left
 }
 
+.login-link {
+  width: 190px;
+}
+
 .login-link a{
-  padding: 10px 20px;
-  text-align: right;
-  /* border: #6B8A7A 1px solid; */
+  display: inline-block;
+  padding: 10px 40px;
+  text-align: center;
   border-radius: 10px;
   background-color: #6B8A7A;
+  color: white;
+  text-decoration: none;
+  width: 120px; /* ボタンの幅を固定 */
+  font-size: 14px; /* フォントサイズを固定 */
+  line-height: 1.5; /* 行の高さを設定 */
+  white-space: nowrap; /* テキストの折り返しを防ぐ */
 }
 
 .calendar {
@@ -38,10 +48,73 @@ a {
 }
 
 .steps {
-  grid-column: 2 / 3;
   display: flex;
   flex-direction: column;
-  padding: 50px 200px;
+  padding: 50px 100px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.step-container {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 20px;
+}
+
+.step-number {
+  width: 80px;
+  margin-right: 20px;
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  white-space: nowrap;
+}
+
+.step-content {
+  display: flex;
+  flex-grow: 1;
+  align-items: center;
+}
+
+.step-content h2 {
+  width: 100px;
+  margin-right: 20px;
+  color: white;
+  font-size: 18px;
+  white-space: nowrap;
+}
+
+.step1 .event-name {
+  flex-grow: 1;
+  height: 45px;
+  border-radius: 8px;
+  padding-left: 8px;
+}
+
+.step2 .date-section {
+  flex-grow: 1;
+}
+
+.generate-section {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.generate-button a {
+  display: inline-block;
+  padding: 15px 100px;
+  background-color: rgb(170, 170, 152);
+  color: white;
+  text-decoration: none;
+  border-radius: 10px;
+  font-size: 20px;
+  font-weight: bold;
+  letter-spacing: 1em;
+  transition: background-color 0.3s ease;
+}
+
+.generate-button a:hover {
+  background-color: rgb(150, 150, 132);
 }
 
 .step1 {
@@ -52,11 +125,13 @@ a {
   color: white;
   padding-right: 80px;
   padding-top: 5px;
+  white-space: nowrap;
 }
 
 .step1 h2 {
   color: white;
   padding-right: 50px;
+  white-space: nowrap;
 }
 
 .step1 input {
@@ -76,11 +151,13 @@ a {
   color: white;
   padding-right: 80px;
   padding-top: 5px;
+  white-space: nowrap;
 }
 
 .step2 h2 {
   color: white;
   padding-right: 50px;
+  white-space: nowrap;
 }
 
 .calendar {
@@ -90,6 +167,8 @@ a {
 
 .date-section {
   display: flex;
+  flex-grow: 1;
+  align-items: flex-start;
   /* height: px; */
 }
 
@@ -116,19 +195,22 @@ a {
 }
 
 .generate-section {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  display: block; /* flexからblockに変更 */
+  text-align: center; /* 内容を中央揃え */
+  margin-top: 20px; /* 必要に応じて上部マージンを調整 */
   /* height: 100px; */
   /* margin-top: 100px; */
   /* margin-left: -100px; */
 }
 
 .generate-button a {
-  /* padding: 10px 20px; */
-  /* margin-top: 100px; */
-  /* border: #6B8A7A 1px solid; */
   border-radius: 10px;
   background-color: rgb(170, 170, 152);
-  padding: 15px 200px;
+  padding: 15px 100px; /* 上下のパディングのみ指定 */
+  display: inline-block; /* flexからinline-blockに変更 */
+  width: 200px; /* 固定幅を設定 */
+  text-align: center; /* テキストを中央揃え */
+  font-size: 20px; /* フォントサイズを固定 */
+  margin: 0 auto; /* 上下マージンを追加し、左右は自動で中央揃え */
+  letter-spacing: 1em;
 }

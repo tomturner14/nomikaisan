@@ -63,13 +63,16 @@ export default function Home() {
   return (
     <div>
       <div className="steps">
-        <div className="step1">
-          <h4>STEP 1</h4>
+        <div className="step-container step1">
+         <h4 className="step-number">STEP 1</h4>
+         <div className="step-content">
           <h2>イベント名</h2>
           <input type="text" className="event-name"/>
         </div>
-        <div className="step2">
-          <h4>STEP 2</h4>
+      </div>
+      <div className="step-container step2">
+        <h4 className="step-number">STEP 2</h4>
+        <div className="step-content">
           <h2>候補日</h2>
           <div className="date-section">
             <div className="calendar">
@@ -103,6 +106,7 @@ export default function Home() {
               <Link href="/complete-page">出欠表作成</Link>
             </h2>
           </div>
+        </div>
       </div>
     </div>
   );
