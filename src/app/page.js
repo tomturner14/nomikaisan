@@ -51,13 +51,22 @@ Event.defaultProps = {
 export default function Home() {
   const [value, setValue] = useState(dayjs().locale('ja'));
   const [selectedDates, setSelectedDates] = useState([]);
+  const [inputValue, setInputValue] = useState('');
 
   const handleDateClick = (newValue) => {
     setValue(newValue);
     const formattedDate = newValue.locale('ja').format('M月D日 (ddd)');
     if (!selectedDates.includes(formattedDate)) {
-      setSelectedDates([...selectedDates, formattedDate]);
+      const newSelectedDates = [...selectedDates, formattedDate];
+      setSelectedDates(newSelectedDates);
+      setInputValue(newSelectedDates.join('\n'));
     }
+  };
+
+  const handleInputChange = (e) => {
+    const newValue = e.target.value;
+    setInputValue(newValue);
+    setSelectedDates(newValue.split('\n').filter(date => date.trim() !== ''));
   };
 
   return (
@@ -71,9 +80,11 @@ export default function Home() {
         </div>
       </div>
       <div className="step-container step2">
-        <h4 className="step-number">STEP 2</h4>
+        <div className="step-header">
+          <h4 className="step-number">STEP 2</h4>
+          <h2 className="step-title">候補日</h2>
+        </div>
         <div className="step-content">
-          <h2>候補日</h2>
           <div className="date-section">
             <div className="calendar">
               <LocalizationProvider dateAdapter={AdapterDayjs} locale="ja">
@@ -96,18 +107,23 @@ export default function Home() {
             <div className="date-input-section">
               <div className="selected_date">
                 <h3>選択済み候補日</h3>
-                <textarea className="selected-date-input" value={selectedDates.join('\n')} readOnly/>
+                <textarea
+                  className="selected-date-input"
+                  value={inputValue}
+                  onChange={handleInputChange}
+                  placeholder="候補日がここに表示されます"
+                />
               </div>
             </div>
           </div>
         </div>
-          <div className="generate-section">
-            <h2 className="generate-button">
-              <Link href="/complete-page">出欠表作成</Link>
-            </h2>
-          </div>
-        </div>
       </div>
     </div>
+    <div className="generate-section">
+      <h2 className="generate-button">
+        <Link href="/complete-page">出欠表作成</Link>
+      </h2>
+    </div>
+  </div>
   );
 }
