@@ -16,7 +16,12 @@ a {
 }
 
 .login-link a:hover {
-    background-color: rgb(77, 94, 86);
+  background-color: rgb(77, 94, 86);
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+.login-link a:hover {
+  background-color: #355f54;
 }
 
 .title{
@@ -35,10 +40,10 @@ a {
   background-color: #6B8A7A;
   color: white;
   text-decoration: none;
-  width: 120px; /* ボタンの幅を固定 */
-  font-size: 14px; /* フォントサイズを固定 */
-  line-height: 1.5; /* 行の高さを設定 */
-  white-space: nowrap; /* テキストの折り返しを防ぐ */
+  width: 120px;
+  font-size: 14px;
+  line-height: 1.5;
+  white-space: nowrap;
 }
 
 .calendar {
@@ -65,7 +70,7 @@ a {
 }
 
 .step-container.step2 {
-  margin-bottom: 10px; /* この値を小さくします */
+  margin-bottom: 10px;
 }
 
 .step-header {
@@ -209,7 +214,7 @@ a {
   font-size: 20px;
   font-weight: bold;
   letter-spacing: 1em;
-  /* transition: background-color 0.3s ease; */
+  transition: background-color 0.3s ease;
 }
 
 .generate-button a:hover {

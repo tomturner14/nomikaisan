@@ -8,10 +8,10 @@
 }
 
 .information {
+  display: flex;
   text-align: left;
   color: black;
   margin-left: 50px;
-  display: flex;
   margin-bottom: 20px;
 }
 
@@ -21,12 +21,18 @@
 
 .eventEdit {
   margin-left: 30px;
-  /* padding: -100px 25px; */
+  padding: 5px;
+  font-size: 12px;
   background-color: #43766C;
   color: #fff;
   border: none;
   border-radius: 5px;
   cursor: pointer;
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+.eventEdit:hover {
+  background-color: #355f54;
 }
 
 .table {
@@ -61,6 +67,11 @@
   border-radius: 5px;
   display: block;
   cursor: pointer;
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+.attendanceButton:hover {
+  background-color: #355f54;
 }
 
 .attendanceForm {
