@@ -10,6 +10,16 @@ header {
   align-items: center;
 }
 
+.title {
+  transition: background-color 0.3s, transform 0.3s;
+  cursor: pointer;
+}
+
+.title:hover {
+  color: #43766C;
+  transform: scale(1.05);
+}
+
 a {
   color: white;
   text-decoration: none;
