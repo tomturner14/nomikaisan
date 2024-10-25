@@ -69,6 +69,21 @@ export default function Home() {
     setSelectedDates(newValue.split('\n').filter(date => date.trim() !== ''));
   };
 
+  const createEvent = async () => {
+    const eventData = {
+      event: {
+        name: inputValue,
+        mamo: "イベント詳細", // フォームから取得する値に置き換え可能
+        url_id: "new-event"
+      }
+    };
+
+    const response = await fetch("http://localhost:3000/events", {
+      method: "POST",
+      headers: 
+    })
+  }
+
   return (
     <div>
       <div className="steps">
