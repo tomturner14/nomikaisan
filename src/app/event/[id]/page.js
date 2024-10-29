@@ -1,7 +1,7 @@
 "use client";
 
 import { usePathname } from "next/navigation";
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import styles from './page.module.css';
 
 const EventPage = () => {
@@ -9,6 +9,10 @@ const EventPage = () => {
   const eventId = pathname.split("/").pop();
   const [showForm, setShowForm] = useState(false);
   const [eventData, setEventData] = useState(null);
+
+  const eventTitles = {
+    title: "イベントタイトル"
+  };
 
   const fetchEvent = async () => {
     try {
