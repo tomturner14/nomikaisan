@@ -73,16 +73,22 @@ export default function Home() {
     const eventData = {
       event: {
         name: inputValue,
-        mamo: "イベント詳細", // フォームから取得する値に置き換え可能
+        memo: "イベント詳細", // フォームから取得する値に置き換え可能
         url_id: "new-event"
       }
     };
 
     const response = await fetch("http://localhost:3000/events", {
       method: "POST",
-      headers: 
-    })
-  }
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(eventData)
+    });
+
+    const data = await response.json();
+    console.log(data);
+  };
 
   return (
     <div>
