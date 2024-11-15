@@ -3,6 +3,7 @@
 import { usePathname } from "next/navigation";
 import { useState, useEffect } from 'react';
 import styles from './page.module.css';
+import { resolve } from "path";
 
 const EventPage = () => {
   const pathname = usePathname();
@@ -16,11 +17,16 @@ const EventPage = () => {
 
   const fetchEvent = async () => {
     try {
-      const response = await fetch(`http://localhost:3000/events/${eventId}`);
+      const response = await fetch(`http://localhost:3001/events/${eventId}`);
+      if (!response.ok) {
+        console.error(`Error: ${response.status}`);
+        return;
+      }
       const data = await response.json();
+      console.log("取得したイベントデータ:", data);
       setEventData(data);
     } catch (error) {
-      console.error("Error fetching event data:", error);
+      console.error("イベントデータ取得中にエラー:", error);
     }
   };
 
@@ -52,7 +58,7 @@ const EventPage = () => {
     try {
       const response = await fetch("http://localhost:3000/events", {
         method: "POST",
-        header: {
+        headers: {
           "Content-Type": "application/json"
         },
         body: JSON.stringify(eventData)
