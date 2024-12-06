@@ -2,6 +2,7 @@
 import Image from "next/image";
 import styles from "./page.module.css";
 import { Fragment, useEffect, useState } from 'react';
+import { useRouter } from 'next/navigation';
 import { Dialog, Transition } from '@headlessui/react';
 import { CheckIcon, ExclamationTriangleIcon } from '@heroicons/react/20/solid';
 import PropTypes from "prop-types"
@@ -17,6 +18,7 @@ import updateLocale from 'dayjs/plugin/updateLocale';
 import { TextField } from "@mui/material";
 import { Duplex } from "stream";
 import Link from "next/link";
+import { isUndefined } from "util";
 
 dayjs.extend(updateLocale);
 
@@ -49,17 +51,22 @@ Event.defaultProps = {
 }
 
 export default function Home() {
+  const router = useRouter();
   const [value, setValue] = useState(dayjs().locale('ja'));
   const [selectedDates, setSelectedDates] = useState([]);
   const [inputValue, setInputValue] = useState('');
+  const [eventName, setEventName] = useState('');
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleDateClick = (newValue) => {
     setValue(newValue);
-    const formattedDate = newValue.locale('ja').format('M月D日 (ddd)');
+    const formattedDate = newValue.format('YYYY-MM-DDTHH:mm:ss.SSS[Z]');
     if (!selectedDates.includes(formattedDate)) {
       const newSelectedDates = [...selectedDates, formattedDate];
       setSelectedDates(newSelectedDates);
-      setInputValue(newSelectedDates.join('\n'));
+      setInputValue(newSelectedDates.map(date =>
+        dayjs(date).format('M月D日 (ddd)')
+      ).join('\n'));
     }
   };
 
@@ -70,24 +77,52 @@ export default function Home() {
   };
 
   const createEvent = async () => {
-    const eventData = {
-      event: {
-        name: inputValue,
-        memo: "イベント詳細", // フォームから取得する値に置き換え可能
-        url_id: "new-event"
+    if (!eventName || selectedDates.length === 0) {
+      alert('イベント名と候補日を入力してください。');
+      return;
+    }
+
+    setIsSubmitting(true);
+
+    try {
+      const eventData = {
+        event: {
+          name: eventName,
+          url_id: crypto.randomUUID().slice(0, 8),  //ここでユニークURLを作ってる
+          memo: "",
+          event_dates_attributes: selectedDates.map(dateStr => ({
+            date: dateStr
+          }))
+        }
+      };
+
+      console.log('Sending data:', eventData);
+
+      const response = await fetch("http://localhost:3001/api/v1/events", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(eventData)
+      });
+
+      console.log('response:', response.json());
+
+      if (!response.ok) {
+        const errorText = await response.text();
+        console.error('Server response:', errorText);
+        throw new Error(`HTTP error! status: ${response.status}`);
       }
-    };
 
-    const response = await fetch("http://localhost:3000/events", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify(eventData)
-    });
+      const data = await response.json();
+      router.push(`/complete-page?event_id=${data.event.url_id}`);
 
-    const data = await response.json();
-    console.log(data);
+    } catch (error) {
+      console.error("イベント作成中にエラーが発生しました", error);
+      alert('イベントの作成に失敗しました。もう一度お試しください。');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -97,7 +132,12 @@ export default function Home() {
          <h4 className="step-number">STEP 1</h4>
          <div className="step-content">
           <h2>イベント名</h2>
-          <input type="text" className="event-name"/>
+          <input
+            type="text"
+            className="event-name"
+            value={eventName}
+            onChange={(e) => setEventName(e.target.value)}
+          />
         </div>
       </div>
       <div className="step-container step2">
@@ -141,9 +181,13 @@ export default function Home() {
       </div>
     </div>
     <div className="generate-section">
-      <h2 className="generate-button">
-        <Link href="/complete-page">出欠表作成</Link>
-      </h2>
+      <button
+        className="generate-button"
+        onClick={createEvent}
+        disabled={isSubmitting}
+        >
+          {isSubmitting ? '作成中...' : '出欠表作成'}
+        </button>
     </div>
   </div>
   );
