@@ -106,16 +106,14 @@ export default function Home() {
         body: JSON.stringify(eventData)
       });
 
-      console.log('response:', response.json());
-
       if (!response.ok) {
         const errorText = await response.text();
         console.error('Server response:', errorText);
         throw new Error(`HTTP error! status: ${response.status}`);
       }
 
-      const data = await response.json();
-      router.push(`/complete-page?event_id=${data.event.url_id}`);
+      const result = await response.json();
+      router.push(`/complete-page?event_id=${result.url_id}`);
 
     } catch (error) {
       console.error("イベント作成中にエラーが発生しました", error);
@@ -154,14 +152,14 @@ export default function Home() {
                   openTo="day"
                   value={value}
                   onChange={(newValue) => handleDateClick(newValue)}
-                  renderInput={(params) => <TextField {...params} />}
-                  renderDay={(day, _value, DayComponentProps) => {
-                    return (
-                      <div onClick={() => handleDateClick(day)}>
-                        <PickersDay {...DayComponentProps} />
-                      </div>
-                    );
+                  slots={{
+                    textField: TextField
                   }}
+                  renderDay={(day, _value, DayComponentProps) => (
+                    <div onClick={() => handleDateClick(day)}>
+                      <PickersDay {...DayComponentProps} />
+                    </div>
+                  )}
                 />
               </LocalizationProvider>
             </div>
