@@ -5,6 +5,8 @@ import styles from './page.module.css';
 import Link from 'next/link';
 
 const CompletePage = () => {
+  const searchParams = useSearchParams();
+  const eventId = searchParams  
   return (
     <div className={styles.container}>
       <h1 className={styles.title}>イベント作成完了</h1>
