@@ -152,6 +152,10 @@ const EventPage = () => {
 
   const handleSubmitAttendance = async (formData) => {
     try {
+      console.log('送信するデータ:', {
+        participant: formData
+      });
+
       const response = await fetch(
         `http://localhost:3001/api/v1/events/${params.id}/attendances`,
         {
@@ -163,13 +167,20 @@ const EventPage = () => {
         }
       );
 
-      if (!response.ok) throw new Error('出欠の登録に失敗しました');
+      if (!response.ok) {
+        const errorData = await response.json();
+        console.error('サーバーエラーの詳細:', errorData);
+        throw new Error('出欠の登録に失敗しました');
+      }
+
+      const result = await response.json();
+      console.log('成功レスポンス:', result);
 
       alert('出欠を登録しました');
       setShowForm(false);
       window.location.reload();
     } catch (error) {
-      console.error('Error:', error);
+      console.error('エラーの詳細:', error);
       alert(error.message);
     }
   };
